@@ -1,18 +1,38 @@
-/* ── Testimonials Variant ── */
+/* ── Testimonials Variant ──
+   TRANSFORMADO: Seção clara com gradiente, cards brancos limpos.
+   ─────────────────────────────────────────────── */
 
 @layer components {
   .testimonials-section {
-    background-color: var(--color-secondary);
+    background: linear-gradient(180deg,
+      hsl(220 30% 98%) 0%,
+      hsl(220 25% 96%) 50%,
+      hsl(220 20% 95%) 100%);
   }
 
   .testimonial-card {
-    background-color: var(--color-surface);
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(220 20% 92% / 0.6);
+    padding: 2rem;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-elegant);
-    transition: box-shadow var(--duration-base) var(--ease-default);
+    transition: all var(--duration-base) var(--ease-default);
   }
 
   .testimonial-card:hover {
     box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+  }
+
+  .testimonial-card blockquote {
+    color: var(--color-text);
+    font-weight: 500;
+    line-height: var(--leading-relaxed);
+  }
+
+  .testimonial-card cite {
+    color: var(--color-text-muted);
+    font-style: normal;
+    font-weight: 500;
   }
 }

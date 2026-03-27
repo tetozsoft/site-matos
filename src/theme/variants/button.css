@@ -1,52 +1,70 @@
-/* ── Button Variants ── */
+/* ── Button Variants ──
+   TRANSFORMADO: Botões grossos, com gradiente, efeito hover elevado.
+   ─────────────────────────────────────────────── */
 
 @layer components {
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    font-weight: var(--weight-medium);
-    transition: var(--transition-all);
+    gap: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius-lg);
+    transition: all var(--duration-base) var(--ease-default);
     cursor: pointer;
+    min-height: 48px;
   }
 
   .btn--primary {
-    background-color: var(--color-primary);
+    background: linear-gradient(135deg, 
+      hsl(var(--color-primary-h) 75% 16%) 0%, 
+      hsl(var(--color-primary-h) 70% 22%) 100%);
     color: var(--color-primary-fg);
+    box-shadow: 0 4px 20px hsl(var(--color-primary-h) 70% 18% / 0.3);
   }
 
   .btn--primary:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsl(var(--color-primary-h) 75% 22% / 0.4);
   }
 
   .btn--secondary {
     background-color: var(--color-secondary);
     color: var(--color-text);
+    font-weight: 600;
+    border: 1px solid var(--color-border);
   }
 
   .btn--secondary:hover {
-    background-color: var(--color-border);
+    background-color: hsl(var(--color-secondary-h) var(--color-secondary-s) calc(var(--color-secondary-l) - 5%));
+    border-color: hsl(var(--color-primary-h) 20% 80%);
   }
 
   .btn--outline {
     background-color: transparent;
-    border: 1px solid var(--color-accent);
+    border: 2px solid var(--color-accent);
     color: var(--color-accent);
+    font-weight: 700;
   }
 
   .btn--outline:hover {
-    background-color: var(--color-accent);
+    background: var(--gold-gradient);
     color: var(--color-accent-fg);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsl(var(--color-accent-h) 85% 50% / 0.3);
   }
 
   .btn--accent {
-    background-image: var(--gold-gradient);
-    color: var(--color-primary-fg);
+    background: var(--gold-gradient);
+    color: var(--color-accent-fg);
+    font-weight: 700;
+    box-shadow: 0 4px 20px hsl(var(--color-accent-h) 85% 50% / 0.3);
   }
 
   .btn--accent:hover {
-    opacity: 0.9;
-    box-shadow: var(--shadow-elegant);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsl(var(--color-accent-h) 85% 55% / 0.4);
   }
 }

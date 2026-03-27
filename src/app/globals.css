@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../theme/index.css";
@@ -65,34 +65,34 @@
   :root {
     /* ── Bridge: shadcn vars → theme token channels ── */
     --background: var(--color-bg-h) var(--color-bg-s) var(--color-bg-l);
-    --foreground: 220 20% 15%;
+    --foreground: 220 25% 12%;
 
     --card: var(--color-bg-h) var(--color-bg-s) var(--color-bg-l);
-    --card-foreground: 220 20% 15%;
+    --card-foreground: 220 25% 12%;
 
     --popover: var(--color-bg-h) var(--color-bg-s) var(--color-bg-l);
-    --popover-foreground: 220 20% 15%;
+    --popover-foreground: 220 25% 12%;
 
     --primary: var(--color-primary-h) var(--color-primary-s) var(--color-primary-l);
     --primary-foreground: 0 0% 100%;
 
     --secondary: var(--color-secondary-h) var(--color-secondary-s) var(--color-secondary-l);
-    --secondary-foreground: 220 20% 15%;
+    --secondary-foreground: 220 25% 12%;
 
     --muted: var(--color-secondary-h) var(--color-secondary-s) var(--color-secondary-l);
-    --muted-foreground: 220 10% 50%;
+    --muted-foreground: 220 12% 45%;
 
     --accent: var(--color-accent-h) var(--color-accent-s) var(--color-accent-l);
-    --accent-foreground: 220 60% 15%;
+    --accent-foreground: 220 60% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
     --ring: var(--color-primary-h) var(--color-primary-s) var(--color-primary-l);
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -152,38 +152,127 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
+    font-weight: var(--weight-normal);
+    background: linear-gradient(180deg, 
+      hsl(220 30% 99%) 0%, 
+      hsl(220 25% 97%) 50%,
+      hsl(220 20% 96%) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    font-weight: var(--text-weight-heading);
   }
 }
 
 @layer components {
+  /* ── Texto gradiente AZUL ── */
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
     background-image: var(--gold-gradient);
   }
 
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--blue-gradient);
+  }
+
+  /* ── Botões ── */
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300;
+    background-image: var(--blue-gradient);
+    color: var(--color-primary-fg);
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.02em;
+    transition: all var(--duration-base) var(--ease-default);
+    box-shadow: 0 4px 20px hsl(var(--color-primary-h) 70% 20% / 0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsl(var(--color-primary-h) 75% 25% / 0.35);
   }
 
   .btn-accent {
-    @apply text-primary-foreground transition-all duration-300;
     background-image: var(--gold-gradient);
+    color: var(--color-accent-fg);
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.02em;
+    transition: all var(--duration-base) var(--ease-default);
   }
 
   .btn-accent:hover {
-    @apply opacity-90 shadow-lg;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsl(var(--color-accent-h) 85% 50% / 0.35);
   }
 
+  /* ── Seções com MAIS ESPAÇO ── */
   .section-padding {
-    @apply py-20 md:py-28 px-4 md:px-8;
+    padding-top: var(--space-section-y);
+    padding-bottom: var(--space-section-y);
+    padding-left: var(--space-section-x);
+    padding-right: var(--space-section-x);
   }
 
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: var(--space-section-y-md);
+      padding-bottom: var(--space-section-y-md);
+      padding-left: var(--space-section-x-md);
+      padding-right: var(--space-section-x-md);
+    }
+  }
+
+  /* ── Container com mais espaçamento ── */
   .container-custom {
     @apply max-w-7xl mx-auto;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+
+  @media (min-width: 768px) {
+    .container-custom {
+      padding-left: var(--space-xl);
+      padding-right: var(--space-xl);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: var(--space-2xl);
+      padding-right: var(--space-2xl);
+    }
+  }
+
+  /* ── Cards modernos com degrade sutil ── */
+  .card-modern {
+    background: linear-gradient(145deg, 
+      hsl(0 0% 100% / 0.98), 
+      hsl(220 30% 98% / 0.95));
+    border: 1px solid hsl(220 20% 92% / 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-card);
+    transition: all var(--duration-base) var(--ease-default);
+  }
+
+  .card-modern:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+  }
+
+  /* ── Background gradiente para seções escuras ── */
+  .bg-dark-gradient {
+    background: var(--dark-gradient);
+    color: var(--color-primary-fg);
+  }
+
+  /* ── Seção clara com degrade sutil ── */
+  .bg-light-gradient {
+    background: linear-gradient(180deg,
+      hsl(220 30% 98%) 0%,
+      hsl(220 25% 96%) 100%);
   }
 }
 
@@ -205,4 +294,13 @@
   .delay-300 { animation-delay: 300ms; }
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
+
+  /* ── Texto com overflow controlado ── */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .overflow-wrap-anywhere {
+    overflow-wrap: break-word;
+  }
 }

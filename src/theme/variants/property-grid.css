@@ -1,20 +1,24 @@
-/* ── Property Grid Variant ── */
+/* ── Property Grid Variant ──
+   TRANSFORMADO: Grid com mais espaçamento entre cards.
+   ─────────────────────────────────────────────── */
 
 @layer components {
   .property-grid {
     display: grid;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   @media (min-width: 768px) {
     .property-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
     }
   }
 
   @media (min-width: 1024px) {
     .property-grid {
       grid-template-columns: repeat(3, 1fr);
+      gap: 3.5rem;
     }
   }
 }

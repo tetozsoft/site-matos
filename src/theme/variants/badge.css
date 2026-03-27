@@ -1,11 +1,17 @@
-/* ── Badge Variants ── */
+/* ── Badge Variants ──
+   TRANSFORMADO: Badge dourado com peso bold.
+   ─────────────────────────────────────────────── */
 
 @layer components {
   .badge--featured {
-    background-color: var(--color-accent);
+    background: var(--gold-gradient);
     color: var(--color-accent-fg);
     font-size: var(--text-xs);
-    font-weight: var(--weight-semibold);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
     border-radius: var(--radius-full);
+    padding: 0.375rem 0.875rem;
+    box-shadow: 0 2px 10px hsl(var(--color-accent-h) 85% 50% / 0.3);
   }
 }

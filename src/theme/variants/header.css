@@ -1,30 +1,44 @@
-/* ── Header Variant ── */
+/* ── Header Variant ──
+   TRANSFORMADO: Header clean com degrade, links grossos.
+   ─────────────────────────────────────────────── */
 
 @layer components {
   .site-header {
-    background-color: hsl(var(--color-bg-h) var(--color-bg-s) var(--color-bg-l) / 0.95);
-    border-bottom-color: var(--color-border);
+    background: linear-gradient(180deg,
+      hsl(0 0% 100% / 0.99) 0%,
+      hsl(220 30% 99% / 0.97) 100%);
+    border-bottom: 1px solid hsl(220 20% 90% / 0.7);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 20px hsl(220 70% 15% / 0.06);
   }
 
   .site-nav__link {
-    color: var(--color-text-muted);
-    transition: var(--transition-colors);
+    color: hsl(220 20% 25%);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: all var(--duration-base) var(--ease-default);
   }
 
   .site-nav__link:hover {
-    color: var(--color-text);
+    color: hsl(220 75% 20%);
+    text-shadow: 0 0 20px hsl(220 75% 30% / 0.2);
   }
 
   .mobile-nav {
     border-top-color: var(--color-border);
+    background: linear-gradient(180deg,
+      hsl(0 0% 100% / 0.99) 0%,
+      hsl(220 30% 99% / 0.98) 100%);
   }
 
   .mobile-nav a {
     color: var(--color-text);
-    transition: var(--transition-colors);
+    font-weight: 600;
+    transition: all var(--duration-base) var(--ease-default);
   }
 
   .mobile-nav a:hover {
     color: var(--color-accent);
+    padding-left: 0.5rem;
   }
 }

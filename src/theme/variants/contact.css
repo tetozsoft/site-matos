@@ -1,36 +1,50 @@
-/* ── Contact Variant ── */
+/* ── Contact Variant ──
+   TRANSFORMADO: Seção clara, formulário branco com inputs modernos.
+   ─────────────────────────────────────────────── */
 
 @layer components {
   .contact-section {
-    background-color: var(--color-secondary);
+    background: linear-gradient(180deg,
+      hsl(220 25% 97%) 0%,
+      hsl(220 30% 99%) 100%);
   }
 
   .contact-form {
-    background-color: var(--color-surface);
-    border-color: var(--color-border);
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(220 20% 92% / 0.6);
+    padding: 3rem;
     border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-elegant);
+    box-shadow: var(--shadow-card);
   }
 
   .contact-form .input {
-    background-color: var(--color-secondary);
-    border-color: var(--color-border);
+    background: hsl(220 20% 98%);
+    border: 1px solid hsl(220 20% 88%);
+    padding: 1rem 1.25rem;
+    font-weight: 500;
     color: var(--color-text);
     border-radius: var(--radius-lg);
-    transition: var(--transition-all);
+    transition: all var(--duration-base) var(--ease-default);
   }
 
   .contact-form .input:focus {
-    border-color: transparent;
-    box-shadow: 0 0 0 2px hsl(var(--color-primary-h) var(--color-primary-s) var(--color-primary-l));
+    border-color: hsl(var(--color-primary-h) 75% 35%);
+    background: hsl(0 0% 100%);
+    box-shadow: 0 0 0 3px hsl(var(--color-primary-h) 75% 35% / 0.15);
   }
 
   .contact-form .input::placeholder {
     color: var(--color-text-muted);
-    opacity: 0.6;
+    opacity: 0.7;
+  }
+
+  .contact-form label {
+    font-weight: 600;
+    color: var(--color-text);
   }
 
   .modal__overlay {
-    background-color: hsl(var(--color-primary-h) var(--color-primary-s) var(--color-primary-l) / 0.5);
+    background: hsl(var(--color-primary-h) 75% 12% / 0.6);
+    backdrop-filter: blur(4px);
   }
 }

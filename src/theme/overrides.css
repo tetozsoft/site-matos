@@ -1,5 +1,6 @@
 /* ── Global Overrides ──
    Scrollbar, selection, focus rings using tokens.
+   TRANSFORMADO: Scrollbar azul moderna, seleção dourada.
    ─────────────────────────────────────────────── */
 
 ::selection {
@@ -7,21 +8,35 @@
   color: var(--color-accent-fg);
 }
 
-/* ── Scrollbar (webkit) ── */
+/* ── Focus ring azul ── */
+:focus-visible {
+  outline: 2px solid hsl(var(--color-primary-h) 75% 35%);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar AZUL MODERNA ── */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-secondary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: hsl(var(--color-primary-h) 30% 96%);
   border-radius: var(--radius-full);
 }
 
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--color-primary-h) 70% 22%);
+  border-radius: var(--radius-full);
+  border: 2px solid hsl(var(--color-primary-h) 30% 96%);
+}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
+  background: hsl(var(--color-primary-h) 75% 28%);
+}
+
+/* ── Firefox scrollbar ── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--color-primary-h) 70% 22%) hsl(var(--color-primary-h) 30% 96%);
 }

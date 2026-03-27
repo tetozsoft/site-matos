@@ -1,38 +1,51 @@
-/* ── Filters Variant ── */
+/* ── Filters Variant ──
+   TRANSFORMADO: Filtros limpos com labels grossos.
+   ─────────────────────────────────────────────── */
 
 @layer components {
   .filters {
-    background-color: var(--color-surface);
-    border-bottom-color: var(--color-border);
+    background: hsl(0 0% 100%);
+    border-bottom: 1px solid hsl(220 20% 92% / 0.6);
+    box-shadow: var(--shadow-sm);
   }
 
   .filters__group label {
-    color: var(--color-text);
-    font-weight: var(--weight-medium);
+    color: hsl(220 25% 15%);
+    font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
   .filters__select {
-    border-color: var(--color-border);
+    border: 1px solid hsl(220 20% 88%);
     color: var(--color-text);
-    background-color: var(--color-surface);
+    background: hsl(220 20% 98%);
+    font-weight: 500;
+    border-radius: var(--radius-lg);
+    padding: 0.75rem 1rem;
+    transition: all var(--duration-base) var(--ease-default);
   }
 
   .filters__select:focus {
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 2px hsl(var(--color-accent-h) var(--color-accent-s) var(--color-accent-l) / 0.2);
+    border-color: hsl(var(--color-primary-h) 75% 30%);
+    background: hsl(0 0% 100%);
+    box-shadow: 0 0 0 3px hsl(var(--color-primary-h) 75% 30% / 0.12);
   }
 
   .filters__btn--active {
-    background-color: var(--color-primary);
+    background: var(--blue-gradient);
     color: var(--color-primary-fg);
-    border-color: var(--color-primary);
+    border-color: transparent;
+    font-weight: 600;
   }
 
   .filters__range {
-    border-color: var(--color-border);
+    border: 1px solid hsl(220 20% 88%);
+    border-radius: var(--radius-lg);
+    padding: 0.75rem 1rem;
   }
 
   .filters__range:focus {
-    border-color: var(--color-accent);
+    border-color: hsl(var(--color-accent-h) 90% 50%);
+    box-shadow: 0 0 0 3px hsl(var(--color-accent-h) 90% 50% / 0.12);
   }
 }

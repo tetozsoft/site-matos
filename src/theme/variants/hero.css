@@ -1,17 +1,30 @@
-/* ── Hero Variant ── */
+/* ── Hero Variant ──
+   TRANSFORMADO: Overlay dramático azul escuro, textos impactantes.
+   ─────────────────────────────────────────────── */
 
 @layer components {
   .hero__overlay {
-    background: var(--hero-overlay);
+    background: linear-gradient(135deg, 
+      hsl(var(--color-primary-h) 80% 8% / 0.96) 0%, 
+      hsl(var(--color-primary-h) 75% 14% / 0.90) 40%,
+      hsl(var(--color-primary-h) 70% 20% / 0.82) 100%);
   }
 
   .hero__title {
     font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.03em;
     color: var(--color-primary-fg);
+    text-shadow: 0 2px 30px hsl(var(--color-primary-h) 80% 8% / 0.4);
+    line-height: var(--leading-tight);
+    overflow-wrap: break-word;
   }
 
   .hero__subtitle {
-    color: hsl(0 0% 100% / 0.8);
+    color: hsl(0 0% 100% / 0.88);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: var(--leading-relaxed);
   }
 
   .hero__stats {
@@ -21,9 +34,11 @@
   .hero__stats .stat-value {
     color: var(--color-accent);
     font-family: var(--font-heading);
+    font-weight: 700;
   }
 
   .hero__stats .stat-label {
-    color: hsl(0 0% 100% / 0.7);
+    color: hsl(0 0% 100% / 0.75);
+    font-weight: 500;
   }
 }

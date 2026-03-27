@@ -1,20 +1,39 @@
-/* ── Services Variant ── */
+/* ── Services Variant ──
+   TRANSFORMADO: Seção azul escuro com gradiente, cards translúcidos.
+   ─────────────────────────────────────────────── */
 
 @layer components {
   .services-section {
-    background-color: var(--color-primary);
+    background: linear-gradient(135deg, 
+      hsl(var(--color-primary-h) 78% 10%) 0%, 
+      hsl(var(--color-primary-h) 72% 14%) 50%,
+      hsl(var(--color-primary-h) 68% 18%) 100%);
     color: var(--color-primary-fg);
   }
 
   .services-card {
-    background-color: hsl(0 0% 100% / 0.05);
-    border: 1px solid hsl(0 0% 100% / 0.1);
+    background: hsl(0 0% 100% / 0.06);
+    border: 1px solid hsl(0 0% 100% / 0.12);
     border-radius: var(--radius-2xl);
-    transition: var(--transition-all);
+    padding: 2.5rem;
+    transition: all var(--duration-base) var(--ease-default);
+    backdrop-filter: blur(10px);
   }
 
   .services-card:hover {
-    background-color: hsl(0 0% 100% / 0.1);
-    transform: translateY(-0.25rem);
+    background: hsl(0 0% 100% / 0.12);
+    border-color: hsl(0 0% 100% / 0.22);
+    transform: translateY(-0.5rem);
+    box-shadow: 0 20px 40px hsl(0 0% 0% / 0.3);
+  }
+
+  .services-card h3 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .services-card p {
+    color: hsl(0 0% 100% / 0.78);
+    line-height: var(--leading-relaxed);
   }
 }
