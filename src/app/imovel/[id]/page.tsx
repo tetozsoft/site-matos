@@ -6,15 +6,16 @@ import { PropertyDetailsClient } from "./PropertyDetailsClient";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
+  // Always include "_" as a fallback page for new properties not yet built.
+  // The Cloudflare Pages Function serves this page when a static file doesn't exist.
+  const params = [{ id: "_" }];
   try {
     const slugs = await fetchAllPropertySlugs();
-    if (slugs.length > 0) return slugs.map((slug) => ({ id: slug }));
+    for (const slug of slugs) params.push({ id: slug });
   } catch {
     // CDN unavailable at build time
   }
-  // Next.js 16 Turbopack bug: returning [] crashes with "missing generateStaticParams".
-  // Return a placeholder so the build succeeds even when there are no properties yet.
-  return [{ id: "_" }];
+  return params;
 }
 
 interface PageProps {
