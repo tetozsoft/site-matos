@@ -44,7 +44,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         title,
         description,
         type: "website",
-        ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630 }] }),
+        url: `/imovel/${id}`,
+        ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630, alt: property.titulo }] }),
       },
       twitter: {
         card: "summary_large_image",
@@ -54,8 +55,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       },
     };
   } catch {
+    const config = await fetchConfigServer().catch(() => null);
+    const fallbackTitle = config?.site_name || "Detalhes do Imóvel";
+    const fallbackDesc = config?.seo?.description || "Encontre o imóvel dos seus sonhos";
     return {
-      title: "Detalhes do Imóvel",
+      title: fallbackTitle,
+      description: fallbackDesc,
+      openGraph: {
+        title: fallbackTitle,
+        description: fallbackDesc,
+      },
     };
   }
 }
